@@ -34,6 +34,7 @@
         android:ems="10"
         android:hint="¿Humano cunato dinero vas a ingresar?"
         android:inputType="numberDecimal"
+        android:visibility="invisible"
         app:layout_constraintStart_toEndOf="@+id/radioGroup"
         app:layout_constraintTop_toBottomOf="@+id/tvVerSaldo" />
 
@@ -48,27 +49,31 @@
         app:layout_constraintTop_toBottomOf="@+id/textView">
 
         <RadioButton
-            android:id="@+id/btnVerSaldo"
+            android:id="@+id/rbVerSaldo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="accion"
             android:text="Ver Saldo" />
 
         <RadioButton
-            android:id="@+id/btnIngresar"
+            android:id="@+id/rbIngresar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="accion"
             android:text="Ingresar" />
 
         <RadioButton
-            android:id="@+id/btnRetirar"
+            android:id="@+id/rbRetirar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="accion"
             android:text="Retirar" />
 
         <RadioButton
-            android:id="@+id/btnSalir"
+            android:id="@+id/rbSalir"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="accion"
             android:text="Salir" />
     </RadioGroup>
 
@@ -80,6 +85,7 @@
         android:layout_marginLeft="24dp"
         android:layout_marginTop="8dp"
         android:textSize="18sp"
+        android:visibility="invisible"
         app:layout_constraintStart_toEndOf="@+id/radioGroup"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -93,6 +99,7 @@
         android:ems="10"
         android:hint="¿Humano cuanto dinero vas a retirar?"
         android:inputType="numberDecimal"
+        android:visibility="invisible"
         app:layout_constraintStart_toEndOf="@+id/radioGroup"
         app:layout_constraintTop_toBottomOf="@+id/txtIngresar" />
 

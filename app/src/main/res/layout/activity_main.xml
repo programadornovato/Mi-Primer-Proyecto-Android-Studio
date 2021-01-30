@@ -7,112 +7,82 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/txtViewResultado"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="590dp" />
-
-    <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Bienvenido al banco PN"
-        android:textSize="30sp"
+        android:layout_width="286dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="16dp"
+        android:text="Bienvenido humano a la tienda del PN"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.632"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/txtIngresar"
-        android:layout_width="400dp"
+        android:id="@+id/txtPrecio"
+        android:layout_width="363dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:ems="10"
-        android:hint="¿Humano cunato dinero vas a ingresar?"
+        android:hint="Humano coloca el precio"
         android:inputType="numberDecimal"
-        android:visibility="invisible"
-        app:layout_constraintStart_toEndOf="@+id/radioGroup"
-        app:layout_constraintTop_toBottomOf="@+id/tvVerSaldo" />
-
-    <RadioGroup
-        android:id="@+id/radioGroup"
-        android:layout_width="166dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView">
-
-        <RadioButton
-            android:id="@+id/rbVerSaldo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="accion"
-            android:text="Ver Saldo" />
-
-        <RadioButton
-            android:id="@+id/rbIngresar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="accion"
-            android:text="Ingresar" />
-
-        <RadioButton
-            android:id="@+id/rbRetirar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="accion"
-            android:text="Retirar" />
-
-        <RadioButton
-            android:id="@+id/rbSalir"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="accion"
-            android:text="Salir" />
-    </RadioGroup>
-
-    <TextView
-        android:id="@+id/tvVerSaldo"
-        android:layout_width="399dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="8dp"
-        android:textSize="18sp"
-        android:visibility="invisible"
-        app:layout_constraintStart_toEndOf="@+id/radioGroup"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-    <EditText
-        android:id="@+id/txtRetirar"
-        android:layout_width="400dp"
+    <Button
+        android:id="@+id/btnAgregar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:text="Agregar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtPrecio" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
-        android:layout_marginTop="32dp"
-        android:ems="10"
-        android:hint="¿Humano cuanto dinero vas a retirar?"
-        android:inputType="numberDecimal"
-        android:visibility="invisible"
-        app:layout_constraintStart_toEndOf="@+id/radioGroup"
-        app:layout_constraintTop_toBottomOf="@+id/txtIngresar" />
+        android:layout_marginTop="24dp"
+        android:text="Lista de productos"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnAgregar" />
+
+    <TextView
+        android:id="@+id/tvLista"
+        android:layout_width="342dp"
+        android:layout_height="162dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <Button
-        android:id="@+id/btnOK"
+        android:id="@+id/btnPagar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginRight="40dp"
-        android:onClick="btnOK"
-        android:text="OK"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:text="Pagar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtRetirar" />
+        app:layout_constraintTop_toBottomOf="@+id/tvTotal" />
+
+    <TextView
+        android:id="@+id/tvTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvLista" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,60 +11,34 @@ import kotlin.math.PI
 import kotlin.math.round
 
 class MainActivity : AppCompatActivity() {
-    private var txtPrecio:EditText?=null
-    private var tvLista:TextView?=null
-    private var tvTotal:TextView?=null
-
-    private var txtPago:EditText?=null
-    private var tvCambio:TextView?=null
-
-    private var contador=0
-    private var listaProductos=ArrayList<Double>()
-    private var total=0.0
+    private var spLenguajes:Spinner?=null
+    private var tvSeleccion:TextView?=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        txtPrecio=findViewById(R.id.txtPrecio)
-        tvLista=findViewById(R.id.tvLista)
-        tvTotal=findViewById(R.id.tvTotal)
-        txtPago=findViewById(R.id.txtPago)
-        tvCambio=findViewById(R.id.tvCambio)
-    }
-    fun agregar(view: View){
-        var precio=txtPrecio?.text.toString().toDouble()
-        listaProductos.add(precio)
-        tvLista?.text=tvLista?.text.toString()+"\n"+"Producto ${contador+1}=%.2f".format(precio)
-        contador++
-        txtPrecio?.setText("")
-        total=0.0
-        listaProductos.forEach{
-            total=total+it
-        }
-        tvTotal?.text="Total=%.2f".format(total)
-    }
-    fun pagar(view: View){
-        var pago=txtPago?.text.toString().toDouble()
-        var cambio=pago-total
-        var centavos=cambio-cambio.toInt()
-        if(centavos>0.0){
-            val dialogo:AlertDialog.Builder=AlertDialog.Builder(this)
-            dialogo.setTitle("¿Deseas donar tus centavos?")
-            dialogo.setMessage("Haz click para donar %.2f".format(centavos)+" centavos")
-            dialogo.setPositiveButton("Si"){ dialogInterface: DialogInterface, i: Int ->
-                Toast.makeText(this,"Gracias por donar %.2f".format(centavos)+" centavos",Toast.LENGTH_LONG).show()
-                tvCambio?.text="Su cambio es de %.2f".format(cambio-centavos)
+        spLenguajes=findViewById(R.id.spLenguajes)
+        tvSeleccion=findViewById(R.id.tvSeleccion)
+
+        val listaLenguajes= arrayOf("Seleccione un lenguaje","Kotlin","Java","C++","PHP")
+
+        var adaptador:ArrayAdapter<String> = ArrayAdapter(this,android.R.layout.simple_spinner_item,listaLenguajes)
+        spLenguajes?.adapter=adaptador
+
+        spLenguajes?.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                if(position>0){
+                    tvSeleccion?.text="Seleccionaste "+spLenguajes?.getSelectedItem().toString()
+                }else{
+                    tvSeleccion?.text="No haz seleccionado ningun lenguaje de programacion"
+                }
             }
-            dialogo.setNegativeButton("No"){ dialogInterface: DialogInterface, i: Int ->
-                Toast.makeText(this,"Gracias por nada por favor no regreses",Toast.LENGTH_LONG).show()
-                tvCambio?.text="Su cambio es de %.2f".format(cambio)
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                tvSeleccion?.text="No haz seleccionado ningun lenguaje de programacion"
             }
-            val alerta:AlertDialog=dialogo.create()
-            alerta.setCanceledOnTouchOutside(false)
-            alerta.show()
-        }else{
-            tvCambio?.text="Su cambio es de %.2f".format(cambio)
+
         }
+
     }
 
 }

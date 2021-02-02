@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
 
         val listaLenguajes= arrayOf("Seleccione un lenguaje","Kotlin","Java","C++","PHP")
 
-        var adaptador:ArrayAdapter<String> = ArrayAdapter(this,android.R.layout.simple_spinner_item,listaLenguajes)
+        var adaptador:ArrayAdapter<String> = ArrayAdapter(this,R.layout.spinner_items_programadornovato,listaLenguajes)
         spLenguajes?.adapter=adaptador
 
         spLenguajes?.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{

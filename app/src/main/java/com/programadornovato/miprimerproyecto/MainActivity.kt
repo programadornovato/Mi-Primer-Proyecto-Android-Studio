@@ -11,32 +11,39 @@ import kotlin.math.PI
 import kotlin.math.round
 
 class MainActivity : AppCompatActivity() {
-    private var spLenguajes:Spinner?=null
+    private var chKotlin:CheckBox?=null
+    private var chJava:CheckBox?=null
+    private var chC:CheckBox?=null
+    private var chPHP:CheckBox?=null
     private var tvSeleccion:TextView?=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        spLenguajes=findViewById(R.id.spLenguajes)
+        chKotlin=findViewById(R.id.chKotlin)
+        chJava=findViewById(R.id.chJava)
+        chC=findViewById(R.id.chC)
+        chPHP=findViewById(R.id.chPHP)
         tvSeleccion=findViewById(R.id.tvSeleccion)
 
-        val listaLenguajes= arrayOf("Seleccione un lenguaje","Kotlin","Java","C++","PHP")
-
-        var adaptador:ArrayAdapter<String> = ArrayAdapter(this,R.layout.spinner_items_programadornovato,listaLenguajes)
-        spLenguajes?.adapter=adaptador
-
-        spLenguajes?.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
-            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                if(position>0){
-                    tvSeleccion?.text="Seleccionaste "+spLenguajes?.getSelectedItem().toString()
-                }else{
-                    tvSeleccion?.text="No haz seleccionado ningun lenguaje de programacion"
-                }
-            }
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-                tvSeleccion?.text="No haz seleccionado ningun lenguaje de programacion"
-            }
-
+    }
+    fun accion(view: View){
+        var seleccion=""
+        if(chKotlin?.isChecked==true){
+            seleccion=seleccion+"Usted selecciono ${chKotlin?.text}\n"
+        }
+        if(chJava?.isChecked==true){
+            seleccion=seleccion+"Usted selecciono ${chJava?.text}\n"
+        }
+        if(chC?.isChecked==true){
+            seleccion=seleccion+"Usted selecciono ${chC?.text}\n"
+        }
+        if(chPHP?.isChecked==true){
+            seleccion=seleccion+"Usted selecciono ${chPHP?.text}\n"
+        }
+        if(seleccion.isEmpty()==true){
+            tvSeleccion?.text="Humano seleccionar un lenguaje!!!!"
+        }else{
+            tvSeleccion?.text=seleccion
         }
 
     }

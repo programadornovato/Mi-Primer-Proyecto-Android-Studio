@@ -20,56 +20,19 @@
         android:id="@+id/tvSeleccion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="Humano seleccionar un lenguaje!!!!"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chPHP" />
+        app:layout_constraintTop_toBottomOf="@+id/lvLenguajes" />
 
-    <CheckBox
-        android:id="@+id/chKotlin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
+    <ListView
+        android:id="@+id/lvLenguajes"
+        android:layout_width="318dp"
+        android:layout_height="229dp"
         android:layout_marginTop="24dp"
-        android:onClick="accion"
-        android:text="Kotlin"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-    <CheckBox
-        android:id="@+id/chJava"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="8dp"
-        android:onClick="accion"
-        android:text="Java"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chKotlin" />
-
-    <CheckBox
-        android:id="@+id/chC"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="8dp"
-        android:onClick="accion"
-        android:text="C++"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chJava" />
-
-    <CheckBox
-        android:id="@+id/chPHP"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="8dp"
-        android:onClick="accion"
-        android:text="PHP"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chC" />
 </androidx.constraintlayout.widget.ConstraintLayout>

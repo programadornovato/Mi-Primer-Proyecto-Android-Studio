@@ -1,6 +1,7 @@
 package com.programadornovato.miprimerproyecto
 
 import android.content.DialogInterface
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -15,13 +16,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
     }
-    fun saludo(view: View){
-        var texto=view.contentDescription.toString()
-        if(texto=="Hola"){
-            Toast.makeText(this,"¡¡Hola humano como estas!!",Toast.LENGTH_LONG).show()
-        }
-        else{
-            Toast.makeText(this,"¡¡Adios humano te voy a extrañar!!",Toast.LENGTH_LONG).show()
-        }
+    fun siguiente(view: View){
+        val sig= Intent(this,MainActivity2::class.java)
+        startActivity(sig)
     }
 }

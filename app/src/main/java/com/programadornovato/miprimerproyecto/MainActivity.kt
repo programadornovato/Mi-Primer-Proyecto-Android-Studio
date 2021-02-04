@@ -12,12 +12,18 @@ import kotlin.math.PI
 import kotlin.math.round
 
 class MainActivity : AppCompatActivity() {
+    private var txtDato:EditText?=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        txtDato=findViewById(R.id.txtDato)
+
     }
-    fun siguiente(view: View){
-        val sig= Intent(this,MainActivity2::class.java)
-        startActivity(sig)
+    fun envia(view:View){
+        var dato=txtDato?.text.toString()
+        var intento=Intent(this,ActivityRecibe::class.java)
+        intento.putExtra("dato",dato)
+        startActivity(intento)
     }
 }

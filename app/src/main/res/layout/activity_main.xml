@@ -17,9 +17,37 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/txtTiempo"
-        android:layout_width="239dp"
-        android:layout_height="75dp"
+        android:id="@+id/txtSegundos"
+        android:layout_width="77dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="56dp"
+        android:ems="10"
+        android:inputType="number"
+        android:text="00"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@+id/txtMinutos"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <EditText
+        android:id="@+id/txtMinutos"
+        android:layout_width="77dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="56dp"
+        android:ems="10"
+        android:inputType="number"
+        android:text="00"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@+id/txtHoras"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <EditText
+        android:id="@+id/txtHoras"
+        android:layout_width="77dp"
+        android:layout_height="64dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="56dp"
@@ -51,5 +79,5 @@
         android:textSize="76sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtTiempo" />
+        app:layout_constraintTop_toBottomOf="@+id/txtSegundos" />
 </androidx.constraintlayout.widget.ConstraintLayout>

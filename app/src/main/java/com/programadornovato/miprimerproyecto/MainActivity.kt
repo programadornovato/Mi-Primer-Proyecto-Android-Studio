@@ -3,8 +3,10 @@ package com.programadornovato.miprimerproyecto
 import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Bitmap
+import android.media.RingtoneManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.view.View
 import android.webkit.*
 import android.widget.*
@@ -14,54 +16,30 @@ import kotlin.math.PI
 import kotlin.math.round
 
 class MainActivity : AppCompatActivity() {
-    private var txtURL:EditText?=null
-    private var navegador:WebView?=null
-    private var pbCarga:ProgressBar?=null
-    private var errorPagina=false
+    private var txtTiempo:EditText?=null
+    private var tvCuentaAtras:TextView?=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        txtURL=findViewById(R.id.txtURL)
-        navegador=findViewById(R.id.navegador)
-        pbCarga=findViewById(R.id.pbCarga)
-        navegador?.clearCache(false)
-        navegador?.settings?.javaScriptEnabled=true
-
-        navegador?.webViewClient = object : WebViewClient(){
-            override fun onReceivedError(
-                view: WebView?,
-                request: WebResourceRequest?,
-                error: WebResourceError?
-            ) {
-                super.onReceivedError(view, request, error)
-                errorPagina=true
-                Toast.makeText(this@MainActivity,"Error al cargar: $error",Toast.LENGTH_LONG).show()
-            }
-
-            override fun onPageFinished(view: WebView?, url: String?) {
-                super.onPageFinished(view, url)
-                if(errorPagina==false){
-                    Toast.makeText(this@MainActivity,"La pagina termino de cargar",Toast.LENGTH_LONG).show()
-                }
-            }
-        }
-        navegador?.webChromeClient = object : WebChromeClient(){
-            override fun onProgressChanged(view: WebView?, newProgress: Int) {
-                super.onProgressChanged(view, newProgress)
-                pbCarga?.progress=0
-                pbCarga?.visibility=View.VISIBLE
-                pbCarga?.incrementProgressBy(newProgress)
-                if(newProgress==100){
-                    pbCarga?.visibility=View.GONE
-                }
-            }
-        }
-
+        txtTiempo=findViewById(R.id.txtTiempo)
+        tvCuentaAtras=findViewById(R.id.tvCuentaAtras)
     }
-    fun cargar(view: View){
-        errorPagina=false
-        var url=txtURL?.text.toString()
-        navegador?.loadUrl(url)
+    fun play(view: View){
+        var tiempoSegundos=txtTiempo?.text.toString().toLong()
+        var tiempoMilisegundos=tiempoSegundos*1000
+        object : CountDownTimer(tiempoMilisegundos,1000){
+            override fun onFinish() {
+                val notificacion=RingtoneManager.getDefaultUri(RingtoneManager.TYPE_RINGTONE)
+                val r=RingtoneManager.getRingtone(this@MainActivity,notificacion)
+                r.play()
+                this.cancel()
+            }
+
+            override fun onTick(millisUntilFinished: Long) {
+                val tiempoSegundos=(millisUntilFinished/1000).toInt()+1
+                tvCuentaAtras?.text=tiempoSegundos.toString().padStart(2,'0')
+            }
+        }.start()
     }
 }

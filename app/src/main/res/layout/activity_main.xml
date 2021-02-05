@@ -6,43 +6,50 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <EditText
-        android:id="@+id/txtURL"
-        android:layout_width="314dp"
-        android:layout_height="51dp"
-        android:ems="10"
-        android:hint="Humano a que pagina quieres ir!!"
-        android:inputType="textPersonName"
-        android:text="https://www.programadornovato.com"
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CRONOMETRO"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <EditText
+        android:id="@+id/txtTiempo"
+        android:layout_width="239dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="56dp"
+        android:ems="10"
+        android:inputType="number"
+        android:text="00"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/btnPlay"
+        android:layout_width="84dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:onClick="play"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:srcCompat="@android:drawable/ic_media_play" />
+
+    <TextView
+        android:id="@+id/tvCuentaAtras"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="cargar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_media_next" />
-
-    <WebView
-        android:id="@+id/navegador"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="84dp"
+        android:text="00"
+        android:textSize="76sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pbCarga" />
-
-    <ProgressBar
-        android:id="@+id/pbCarga"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtURL" />
+        app:layout_constraintTop_toBottomOf="@+id/txtTiempo" />
 </androidx.constraintlayout.widget.ConstraintLayout>

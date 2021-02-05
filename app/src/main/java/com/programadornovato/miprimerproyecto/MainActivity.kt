@@ -2,13 +2,11 @@ package com.programadornovato.miprimerproyecto
 
 import android.content.DialogInterface
 import android.content.Intent
+import android.graphics.Bitmap
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.webkit.WebResourceError
-import android.webkit.WebResourceRequest
-import android.webkit.WebView
-import android.webkit.WebViewClient
+import android.webkit.*
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import java.math.BigDecimal
@@ -18,6 +16,7 @@ import kotlin.math.round
 class MainActivity : AppCompatActivity() {
     private var txtURL:EditText?=null
     private var navegador:WebView?=null
+    private var pbCarga:ProgressBar?=null
     private var errorPagina=false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,6 +24,7 @@ class MainActivity : AppCompatActivity() {
 
         txtURL=findViewById(R.id.txtURL)
         navegador=findViewById(R.id.navegador)
+        pbCarga=findViewById(R.id.pbCarga)
         navegador?.clearCache(false)
         navegador?.settings?.javaScriptEnabled=true
 
@@ -46,7 +46,17 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
-
+        navegador?.webChromeClient = object : WebChromeClient(){
+            override fun onProgressChanged(view: WebView?, newProgress: Int) {
+                super.onProgressChanged(view, newProgress)
+                pbCarga?.progress=0
+                pbCarga?.visibility=View.VISIBLE
+                pbCarga?.incrementProgressBy(newProgress)
+                if(newProgress==100){
+                    pbCarga?.visibility=View.GONE
+                }
+            }
+        }
 
     }
     fun cargar(view: View){

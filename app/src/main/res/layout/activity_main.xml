@@ -28,10 +28,38 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_menu_today" />
 
+
+    <EditText
+        android:id="@+id/txtHora"
+        android:layout_width="75dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="time"
+        app:layout_constraintStart_toEndOf="@+id/btnFecha"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/btnHora"
+        android:layout_width="40dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:onClick="mostrarReloj"
+        app:layout_constraintStart_toEndOf="@+id/txtHora"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_lock_idle_alarm" />
+
     <DatePicker
         android:id="@+id/dpFecha"
         android:layout_width="500dp"
         android:layout_height="400dp"
         android:visibility="gone" />
 
+    <TimePicker
+        android:id="@+id/tpHora"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
+        android:visibility="gone" />
 </androidx.constraintlayout.widget.ConstraintLayout>

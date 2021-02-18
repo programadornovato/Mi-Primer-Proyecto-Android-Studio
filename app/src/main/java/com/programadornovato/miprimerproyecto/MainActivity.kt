@@ -13,6 +13,11 @@ class MainActivity : AppCompatActivity() {
     var txtFecha:EditText?=null
     var btnFecha:ImageButton?=null
     var dpFecha:DatePicker?=null
+
+    var txtHora:EditText?=null
+    var btnHora:ImageButton?=null
+    var tpHora:TimePicker?=null
+
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +34,26 @@ class MainActivity : AppCompatActivity() {
             txtFecha?.setText(getFechaDtePicker())
             dpFecha?.visibility=View.GONE
         }
+
+        txtHora=findViewById(R.id.txtHora)
+        btnHora=findViewById(R.id.btnHora)
+        tpHora=findViewById(R.id.tpHora)
+
+        txtHora?.setText(getHoraTimePicker())
+
+        tpHora?.setOnClickListener { tpHora->
+            txtHora?.setText(getHoraTimePicker())
+            tpHora?.visibility=View.GONE
+        }
+
+    }
+    fun getHoraTimePicker():String{
+        var hora=tpHora?.currentHour.toString().padStart(2,'0')
+        var minutos=tpHora?.currentMinute.toString().padStart(2,'0')
+        return hora+":"+minutos
+    }
+    fun mostrarReloj(view: View){
+        tpHora?.visibility=View.VISIBLE
     }
     fun getFechaDtePicker():String{
         var dia=dpFecha?.dayOfMonth.toString().padStart(2,'0')

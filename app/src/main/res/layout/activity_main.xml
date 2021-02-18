@@ -6,78 +6,32 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="CRONOMETRO"
-        android:textSize="36sp"
-        app:layout_constraintEnd_toEndOf="parent"
+    <EditText
+        android:id="@+id/txtFecha"
+        android:layout_width="94dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="date"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/txtSegundos"
-        android:layout_width="77dp"
-        android:layout_height="64dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="56dp"
-        android:ems="10"
-        android:inputType="number"
-        android:text="00"
-        android:textSize="24sp"
-        app:layout_constraintStart_toEndOf="@+id/txtMinutos"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-    <EditText
-        android:id="@+id/txtMinutos"
-        android:layout_width="77dp"
-        android:layout_height="64dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="56dp"
-        android:ems="10"
-        android:inputType="number"
-        android:text="00"
-        android:textSize="24sp"
-        app:layout_constraintStart_toEndOf="@+id/txtHoras"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-    <EditText
-        android:id="@+id/txtHoras"
-        android:layout_width="77dp"
-        android:layout_height="64dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="56dp"
-        android:ems="10"
-        android:inputType="number"
-        android:text="00"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
     <ImageButton
-        android:id="@+id/btnPlay"
-        android:layout_width="84dp"
-        android:layout_height="75dp"
-        android:layout_marginTop="56dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:onClick="play"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:srcCompat="@android:drawable/ic_media_play" />
+        android:id="@+id/btnFecha"
+        android:layout_width="42dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:onClick="muestraCalendario"
+        app:layout_constraintStart_toEndOf="@+id/txtFecha"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_today" />
 
-    <TextView
-        android:id="@+id/tvCuentaAtras"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="84dp"
-        android:text="00"
-        android:textSize="76sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtSegundos" />
+    <DatePicker
+        android:id="@+id/dpFecha"
+        android:layout_width="500dp"
+        android:layout_height="400dp"
+        android:visibility="gone" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

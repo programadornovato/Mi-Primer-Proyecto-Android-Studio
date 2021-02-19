@@ -1,5 +1,6 @@
 package com.programadornovato.miprimerproyecto
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
@@ -11,28 +12,41 @@ import android.os.CountDownTimer
 import android.view.View
 import android.widget.*
 import androidx.annotation.RequiresApi
+import java.io.BufferedReader
+import java.io.InputStreamReader
+import java.io.OutputStreamWriter
 
 class MainActivity : AppCompatActivity() {
-    var txtUsu:EditText?=null
-    var txtPass:EditText?=null
+    var txtTexto:EditText?=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        txtUsu=findViewById(R.id.txtUsu)
-        txtPass=findViewById(R.id.txtPass)
+        txtTexto=findViewById(R.id.txtTexto)
+        if(existeArchivo(fileList(),"texto.txt")){
+            var contenido=""
+            val archivo=InputStreamReader(openFileInput("texto.txt"))
+            val bf=BufferedReader(archivo)
+            var linea=bf.readLine()
+            while (linea!=null){
+                contenido=contenido+linea+"\n"
+                linea=bf.readLine()
+            }
+            txtTexto?.setText(contenido)
+        }
     }
     fun guardar(view: View){
-        var pref=getSharedPreferences(txtUsu?.text.toString(),Context.MODE_PRIVATE)
-        var editor=pref.edit()
-        editor.putString("pass",txtPass?.text.toString())
-        editor.commit()
-        Toast.makeText(this,"El usuario se ha guarddo exitosamente",Toast.LENGTH_LONG).show()
-        txtPass?.setText("")
-        txtUsu?.setText("")
+        val archivo=OutputStreamWriter(openFileOutput("texto.txt",Activity.MODE_PRIVATE))
+        archivo.write(txtTexto?.text.toString())
+        archivo.flush()
+        archivo.close()
+        finish()
     }
-    fun irLogin(view: View){
-        val login=Intent(this,ActivityLogin::class.java)
-        startActivity(login)
+    fun existeArchivo(archivos:Array<String>,archivo:String):Boolean{
+        archivos.forEach {
+            if(archivo==it){
+                return true
+            }
+        }
+        return false
     }
 }

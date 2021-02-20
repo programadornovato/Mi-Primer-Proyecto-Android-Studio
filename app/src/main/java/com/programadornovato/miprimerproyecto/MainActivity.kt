@@ -1,52 +1,59 @@
 package com.programadornovato.miprimerproyecto
 
 import android.app.Activity
-import android.content.Context
-import android.content.Intent
-import android.content.SharedPreferences
-import android.media.RingtoneManager
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.CountDownTimer
+import android.os.Environment
 import android.view.View
 import android.widget.*
-import androidx.annotation.RequiresApi
-import java.io.BufferedReader
-import java.io.InputStreamReader
-import java.io.OutputStreamWriter
+import java.io.*
 
 class MainActivity : AppCompatActivity() {
-    var txtTexto:EditText?=null
+    var txtNombre:EditText?=null
+    var txtContenido:EditText?=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        txtTexto=findViewById(R.id.txtTexto)
-        if(existeArchivo(fileList(),"texto.txt")){
-            var contenido=""
-            val archivo=InputStreamReader(openFileInput("texto.txt"))
-            val bf=BufferedReader(archivo)
-            var linea=bf.readLine()
-            while (linea!=null){
-                contenido=contenido+linea+"\n"
-                linea=bf.readLine()
-            }
-            txtTexto?.setText(contenido)
-        }
+
+        txtNombre=findViewById(R.id.txtNombre)
+        txtContenido=findViewById(R.id.txtContenido)
     }
     fun guardar(view: View){
-        val archivo=OutputStreamWriter(openFileOutput("texto.txt",Activity.MODE_PRIVATE))
-        archivo.write(txtTexto?.text.toString())
-        archivo.flush()
-        archivo.close()
-        finish()
-    }
-    fun existeArchivo(archivos:Array<String>,archivo:String):Boolean{
-        archivos.forEach {
-            if(archivo==it){
-                return true
-            }
+        val nombre=txtNombre?.text.toString()
+        val contenido=txtContenido?.text.toString()
+        try {
+            val sd=Environment.getExternalStorageDirectory()
+            val rutaArchivo= File(sd.path.toString(),nombre)
+            val archivo=OutputStreamWriter(openFileOutput(nombre,Activity.MODE_PRIVATE))
+            archivo.write(contenido)
+            archivo.flush()
+            archivo.close()
+            Toast.makeText(this,"El archivo se guardo exitosamente",Toast.LENGTH_LONG).show()
+            txtNombre?.setText("")
+            txtContenido?.setText("")
+        }catch (e:IOException){
+            Toast.makeText(this,"Hubo un error al guardar "+e,Toast.LENGTH_LONG).show()
         }
-        return false
+    }
+    fun buscar(view: View){
+        val nombre=txtNombre?.text.toString()
+        var contenido=""
+        try {
+        val sd=Environment.getExternalStorageDirectory()
+        val rutaArchivo= File(sd.path.toString(),nombre)
+        val archivo=InputStreamReader(openFileInput(nombre))
+        val bf=BufferedReader(archivo)
+        var linea=bf.readLine()
+        while (linea!=null){
+            contenido=contenido+linea+"\n"
+            linea=bf?.readLine()
+        }
+        archivo.close()
+        bf.close()
+        txtContenido?.setText(contenido)
+        }catch (e:IOException){
+            Toast.makeText(this,"Hubo un error al guardar "+e,Toast.LENGTH_LONG).show()
+        }
+
     }
 }

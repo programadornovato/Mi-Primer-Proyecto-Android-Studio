@@ -6,51 +6,103 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <EditText
-        android:id="@+id/txtContenido"
-        android:layout_width="359dp"
-        android:layout_height="221dp"
+    <RadioGroup
+        android:id="@+id/radioGroup2"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
         android:layout_marginTop="24dp"
-        android:background="#FFEB3B"
-        android:ems="10"
-        android:gravity="start|top"
-        android:inputType="textMultiLine"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtNombre" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <ImageButton
-        android:id="@+id/btnGuardar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
-        android:onClick="guardar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtContenido"
-        app:srcCompat="@android:drawable/ic_menu_save" />
+        <RadioButton
+            android:id="@+id/rdLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="clickLoginRegistro"
+            android:text="Login" />
 
-    <EditText
-        android:id="@+id/txtNombre"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:inputType="textPersonName"
+        <RadioButton
+            android:id="@+id/rdRegistro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="clickLoginRegistro"
+            android:text="Registro" />
+    </RadioGroup>
+
+    <LinearLayout
+        android:id="@+id/llLogin"
+        android:layout_width="342dp"
+        android:layout_height="168dp"
+        android:layout_marginTop="32dp"
+        android:orientation="vertical"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup2">
 
-    <ImageButton
-        android:id="@+id/imageButton19"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="16dp"
-        android:onClick="buscar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtContenido"
-        app:srcCompat="@android:drawable/ic_menu_search" />
+        <EditText
+            android:id="@+id/editTextTextPersonName4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="User"
+            android:inputType="textPersonName"
+            android:text="Name" />
+
+        <EditText
+            android:id="@+id/editTextTextPassword5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Pass"
+            android:inputType="textPassword" />
+
+        <Button
+            android:id="@+id/button17"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Login" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llRegistro"
+        android:layout_width="340dp"
+        android:layout_height="276dp"
+        android:layout_marginTop="32dp"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup2"
+        tools:layout_editor_absoluteX="36dp">
+
+        <EditText
+            android:id="@+id/editTextTextPersonName5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/editTextTextPassword6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPassword" />
+
+        <EditText
+            android:id="@+id/editTextTextPassword7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPassword" />
+
+        <Button
+            android:id="@+id/button18"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Registro" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

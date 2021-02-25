@@ -23,6 +23,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:onClick="calcular"
                 android:text="7"
                 android:textSize="30sp" />
 
@@ -31,6 +32,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:onClick="calcular"
                 android:text="8"
                 android:textSize="30sp" />
 
@@ -39,6 +41,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:onClick="calcular"
                 android:text="9"
                 android:textSize="30sp" />
         </TableRow>
@@ -52,6 +55,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:onClick="calcular"
                 android:text="4"
                 android:textSize="30sp" />
 
@@ -60,6 +64,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:onClick="calcular"
                 android:text="5"
                 android:textSize="30sp" />
 
@@ -68,6 +73,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:onClick="calcular"
                 android:text="6"
                 android:textSize="30sp" />
         </TableRow>
@@ -81,6 +87,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:onClick="calcular"
                 android:text="1"
                 android:textSize="30sp" />
 
@@ -89,6 +96,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:onClick="calcular"
                 android:text="2"
                 android:textSize="30sp" />
 
@@ -97,6 +105,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:onClick="calcular"
                 android:text="3"
                 android:textSize="30sp" />
         </TableRow>
@@ -110,6 +119,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:onClick="calcular"
                 android:text="+"
                 android:textSize="30sp" />
 
@@ -118,6 +128,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:onClick="calcular"
                 android:text="0"
                 android:textSize="30sp" />
 
@@ -126,6 +137,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:onClick="calcular"
                 android:text="-"
                 android:textSize="30sp" />
         </TableRow>
@@ -139,6 +151,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:onClick="calcular"
                 android:text="*"
                 android:textSize="30sp" />
 
@@ -147,6 +160,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:onClick="calcular"
                 android:text="/"
                 android:textSize="30sp" />
 
@@ -155,6 +169,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:onClick="calcular"
                 android:text="="
                 android:textSize="30sp" />
         </TableRow>
@@ -167,20 +182,21 @@
                 android:id="@+id/button27"
                 android:layout_width="308dp"
                 android:layout_height="wrap_content"
-                android:text="Reset" />
+                android:onClick="calcular"
+                android:text="RESET" />
         </TableRow>
 
     </TableLayout>
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/tvRes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="56dp"
         android:layout_marginLeft="56dp"
         android:layout_marginTop="48dp"
         android:text="0"
-        android:textSize="36sp"
+        android:textSize="56sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

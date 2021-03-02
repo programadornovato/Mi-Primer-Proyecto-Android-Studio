@@ -16,7 +16,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         tlTabla=findViewById(R.id.tlTabla)
-
+        supportActionBar?.setDisplayShowHomeEnabled(true)
+        supportActionBar?.setIcon(R.mipmap.ic_launcher)
         for (i in 0 .. 35){
             val registro=LayoutInflater.from(this).inflate(R.layout.row_table_pn,null,false)
             val tv0=registro.findViewById<View>(R.id.tv0) as TextView

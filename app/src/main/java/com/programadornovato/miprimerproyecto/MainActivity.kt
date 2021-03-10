@@ -172,6 +172,9 @@ class MainActivity : AppCompatActivity() {
                 gano=coincideGanador(matrizGanadora[j],posicionesX)
                 if(gano==true){
                     Toast.makeText(this,"Gano X",Toast.LENGTH_LONG).show()
+                    gandor="x"
+                    dibujaGanador()
+                    deshabilitar()
                     break
                 }
             }
@@ -186,6 +189,9 @@ class MainActivity : AppCompatActivity() {
                 gano=coincideGanador(matrizGanadora[j],posicionesO)
                 if(gano==true){
                     Toast.makeText(this,"Gano O",Toast.LENGTH_LONG).show()
+                    gandor="o"
+                    dibujaGanador()
+                    deshabilitar()
                     break
                 }
             }
@@ -202,5 +208,84 @@ class MainActivity : AppCompatActivity() {
             }
         }
         return true
+    }
+    fun dibujaGanador(){
+        if(gandor=="x"){
+            for (i in 0 until contadorX){
+                if(posicionesX[i]==1){
+                    img1?.setBackgroundColor(Color.BLUE)
+                }
+                if(posicionesX[i]==2){
+                    img2?.setBackgroundColor(Color.BLUE)
+                }
+                if(posicionesX[i]==3){
+                    img3?.setBackgroundColor(Color.BLUE)
+                }
+                if(posicionesX[i]==4){
+                    img4?.setBackgroundColor(Color.BLUE)
+                }
+                if(posicionesX[i]==5){
+                    img5?.setBackgroundColor(Color.BLUE)
+                }
+                if(posicionesX[i]==6){
+                    img6?.setBackgroundColor(Color.BLUE)
+                }
+                if(posicionesX[i]==7){
+                    img7?.setBackgroundColor(Color.BLUE)
+                }
+                if(posicionesX[i]==8){
+                    img8?.setBackgroundColor(Color.BLUE)
+                }
+                if(posicionesX[i]==9){
+                    img9?.setBackgroundColor(Color.BLUE)
+                }
+            }
+        }else{
+            for (i in 0 until contadorO){
+                if(posicionesO[i]==1){
+                    img1?.setBackgroundColor(Color.BLUE)
+                }
+                if(posicionesO[i]==2){
+                    img2?.setBackgroundColor(Color.BLUE)
+                }
+                if(posicionesO[i]==3){
+                    img3?.setBackgroundColor(Color.BLUE)
+                }
+                if(posicionesO[i]==4){
+                    img4?.setBackgroundColor(Color.BLUE)
+                }
+                if(posicionesO[i]==5){
+                    img5?.setBackgroundColor(Color.BLUE)
+                }
+                if(posicionesO[i]==6){
+                    img6?.setBackgroundColor(Color.BLUE)
+                }
+                if(posicionesO[i]==7){
+                    img7?.setBackgroundColor(Color.BLUE)
+                }
+                if(posicionesO[i]==8){
+                    img8?.setBackgroundColor(Color.BLUE)
+                }
+                if(posicionesO[i]==9){
+                    img9?.setBackgroundColor(Color.BLUE)
+                }
+            }
+        }
+    }
+    fun deshabilitar(){
+        img1?.isEnabled=false
+        img2?.isEnabled=false
+        img3?.isEnabled=false
+        img4?.isEnabled=false
+        img5?.isEnabled=false
+        img6?.isEnabled=false
+        img7?.isEnabled=false
+        img8?.isEnabled=false
+        img9?.isEnabled=false
+    }
+    fun reiniciar(view: View){
+        val intento=intent
+        finish()
+        startActivity(intento)
     }
 }

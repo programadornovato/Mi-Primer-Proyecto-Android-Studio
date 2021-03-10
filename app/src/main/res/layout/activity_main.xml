@@ -4,40 +4,117 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000000"
+    android:background="#FFF"
     tools:context=".MainActivity" >
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+    <TableLayout
+        android:id="@+id/tableLayout2"
+        android:layout_width="310dp"
+        android:layout_height="303dp"
+        android:layout_marginTop="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/img1"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:onClick="clickImagen"
+                app:srcCompat="@drawable/nada" />
+
+            <ImageView
+                android:id="@+id/img2"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:onClick="clickImagen"
+                app:srcCompat="@drawable/nada" />
+
+            <ImageView
+                android:id="@+id/img3"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:onClick="clickImagen"
+                app:srcCompat="@drawable/nada" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/img4"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:onClick="clickImagen"
+                app:srcCompat="@drawable/nada" />
+
+            <ImageView
+                android:id="@+id/img5"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:onClick="clickImagen"
+                app:srcCompat="@drawable/nada" />
+
+            <ImageView
+                android:id="@+id/img6"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:onClick="clickImagen"
+                app:srcCompat="@drawable/nada" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/img7"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:onClick="clickImagen"
+                app:srcCompat="@drawable/nada" />
+
+            <ImageView
+                android:id="@+id/img8"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:onClick="clickImagen"
+                app:srcCompat="@drawable/nada" />
+
+            <ImageView
+                android:id="@+id/img9"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:onClick="clickImagen"
+                app:srcCompat="@drawable/nada" />
+        </TableRow>
+
+    </TableLayout>
 
     <ImageView
-        android:id="@+id/imgGrabar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="28dp"
-        android:onClick="grabar"
+        android:id="@+id/imgTurnoX"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginTop="44dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:srcCompat="@drawable/stop_rec" />
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout2"
+        app:srcCompat="@drawable/gato_x" />
 
     <ImageView
-        android:id="@+id/imgPlay"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="52dp"
-        android:layout_marginRight="52dp"
-        android:onClick="reproducir"
+        android:id="@+id/imgTurnoO"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginRight="40dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:srcCompat="@drawable/reproducir" />
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout2"
+        app:srcCompat="@drawable/gato_o" />
 </androidx.constraintlayout.widget.ConstraintLayout>

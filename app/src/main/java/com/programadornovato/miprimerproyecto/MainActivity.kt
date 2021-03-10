@@ -24,59 +24,49 @@ import java.io.IOException
 import java.lang.Exception
 
 class MainActivity : AppCompatActivity() {
-    var grabadora:MediaRecorder?=null
-    var ruta:String?=null
-    var imgGrabar:ImageView?=null
+    var img1:ImageView?=null
+    var img2:ImageView?=null
+    var img3:ImageView?=null
+    var img4:ImageView?=null
+    var img5:ImageView?=null
+    var img6:ImageView?=null
+    var img7:ImageView?=null
+    var img8:ImageView?=null
+    var img9:ImageView?=null
+
+    var imgTurnoX:ImageView?=null
+    var imgTurnoO:ImageView?=null
+    var turno="x"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        imgGrabar=findViewById(R.id.imgGrabar)
-
-        if (ContextCompat.checkSelfPermission(applicationContext, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(applicationContext, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this@MainActivity, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.RECORD_AUDIO), 1000)
-        }
+        img1=findViewById(R.id.img1)
+        img2=findViewById(R.id.img2)
+        img3=findViewById(R.id.img3)
+        img4=findViewById(R.id.img4)
+        img5=findViewById(R.id.img5)
+        img6=findViewById(R.id.img6)
+        img7=findViewById(R.id.img7)
+        img8=findViewById(R.id.img8)
+        img9=findViewById(R.id.img9)
+        imgTurnoX=findViewById(R.id.imgTurnoX)
+        imgTurnoO=findViewById(R.id.imgTurnoO)
+        imgTurnoX?.setBackgroundColor(Color.RED)
 
     }
-    fun grabar(view : View){
-
-        if(grabadora==null){
-            ruta=getExternalStorageDirectory().getAbsolutePath().toString()+"/grabacion.mp3"
-            grabadora=MediaRecorder()
-            grabadora?.setAudioSource(MediaRecorder.AudioSource.MIC)
-            grabadora?.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP)
-            grabadora?.setAudioEncoder(MediaRecorder.OutputFormat.AMR_NB)
-            grabadora?.setOutputFile(ruta)
-            try {
-                grabadora?.prepare()
-                grabadora?.start()
-                imgGrabar?.setBackgroundColor(Color.RED)
-                Toast.makeText(applicationContext, "Grabando...", Toast.LENGTH_SHORT).show()
-            }catch (e:IOException){
-                println(e)
-            }
-
+    fun clickImagen(view: View){
+        if(turno=="x"){
+            view.setBackgroundResource(R.drawable.gato_x)
+            imgTurnoO?.setBackgroundColor(Color.RED)
+            imgTurnoX?.setBackgroundColor(Color.WHITE)
+            turno="o"
         }else{
-            try {
-                grabadora?.stop()
-                grabadora?.release()
-                imgGrabar?.setBackgroundColor(Color.BLACK)
-                Toast.makeText(applicationContext, "Termino de grabar", Toast.LENGTH_SHORT).show()
-            }catch (e:IOException){
-                println(e)
-            }
+            view.setBackgroundResource(R.drawable.gato_o)
+            imgTurnoX?.setBackgroundColor(Color.RED)
+            imgTurnoO?.setBackgroundColor(Color.WHITE)
+            turno="x"
         }
+        view.isEnabled=false
     }
-    fun reproducir(view: View){
-        var mediaPlayer=MediaPlayer()
-        try {
-            mediaPlayer.setDataSource(ruta)
-            mediaPlayer.prepare()
-        }catch (e:IOException){
-            println(e)
-        }
-        mediaPlayer.start()
-        Toast.makeText(applicationContext, "Reproduciendo audio", Toast.LENGTH_SHORT).show()
-    }
-
 }

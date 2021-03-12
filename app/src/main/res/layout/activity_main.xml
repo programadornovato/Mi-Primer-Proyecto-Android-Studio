@@ -7,125 +7,58 @@
     android:background="#FFF"
     tools:context=".MainActivity" >
 
-    <TableLayout
-        android:id="@+id/tableLayout2"
-        android:layout_width="310dp"
-        android:layout_height="303dp"
-        android:layout_marginTop="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ImageView
-                android:id="@+id/img1"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:onClick="clickImagen"
-                app:srcCompat="@drawable/nada" />
-
-            <ImageView
-                android:id="@+id/img2"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:onClick="clickImagen"
-                app:srcCompat="@drawable/nada" />
-
-            <ImageView
-                android:id="@+id/img3"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:onClick="clickImagen"
-                app:srcCompat="@drawable/nada" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ImageView
-                android:id="@+id/img4"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:onClick="clickImagen"
-                app:srcCompat="@drawable/nada" />
-
-            <ImageView
-                android:id="@+id/img5"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:onClick="clickImagen"
-                app:srcCompat="@drawable/nada" />
-
-            <ImageView
-                android:id="@+id/img6"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:onClick="clickImagen"
-                app:srcCompat="@drawable/nada" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ImageView
-                android:id="@+id/img7"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:onClick="clickImagen"
-                app:srcCompat="@drawable/nada" />
-
-            <ImageView
-                android:id="@+id/img8"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:onClick="clickImagen"
-                app:srcCompat="@drawable/nada" />
-
-            <ImageView
-                android:id="@+id/img9"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:onClick="clickImagen"
-                app:srcCompat="@drawable/nada" />
-        </TableRow>
-
-    </TableLayout>
-
-    <ImageView
-        android:id="@+id/imgTurnoX"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginLeft="48dp"
-        android:layout_marginTop="44dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tableLayout2"
-        app:srcCompat="@drawable/gato_x" />
-
-    <ImageView
-        android:id="@+id/imgTurnoO"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginRight="40dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tableLayout2"
-        app:srcCompat="@drawable/gato_o" />
-
-    <Button
-        android:id="@+id/button2"
+    <EditText
+        android:id="@+id/txtApellido"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="184dp"
-        android:onClick="reiniciar"
-        android:text="Reiniciar"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:hint="@string/apellido"
+        android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tableLayout2" />
+        app:layout_constraintTop_toBottomOf="@+id/tvApellido" />
+
+    <TextView
+        android:id="@+id/tvApellido"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="@string/apellido"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtNombre" />
+
+    <TextView
+        android:id="@+id/tvNombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/nombre"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/txtNombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="@string/nombre"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvNombre" />
+
+    <Button
+        android:id="@+id/btnGuardar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:text="@string/guardar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtApellido" />
 </androidx.constraintlayout.widget.ConstraintLayout>
+

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Novice Programmer</string>
+    <string name="nombre">Name</string>
+    <string name="apellido">Last Name</string>
+    <string name="guardar">Save</string>
+</resources>

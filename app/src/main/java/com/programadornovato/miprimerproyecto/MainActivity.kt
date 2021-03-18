@@ -33,20 +33,23 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_desplegable,menu)
+        menuInflater.inflate(R.menu.menu_iconos,menu)
         return super.onCreateOptionsMenu(menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
-            R.id.item1->{
-                Toast.makeText(this, "Opción 1", Toast.LENGTH_SHORT).show();
+            R.id.itemCopiar->{
+                Toast.makeText(this, "Copiar", Toast.LENGTH_SHORT).show()
             }
-            R.id.item2->{
-                Toast.makeText(this, "Opción 2", Toast.LENGTH_SHORT).show();
+            R.id.itemBuscar->{
+                Toast.makeText(this, "Buscar", Toast.LENGTH_SHORT).show()
             }
-            R.id.item3->{
-                Toast.makeText(this, "Opción 3", Toast.LENGTH_SHORT).show();
+            R.id.itemOpcion1->{
+                Toast.makeText(this, "Opcion 1", Toast.LENGTH_SHORT).show()
+            }
+            R.id.itemOpcion2->{
+                Toast.makeText(this, "Opcion 2", Toast.LENGTH_SHORT).show()
             }
         }
         return super.onOptionsItemSelected(item)

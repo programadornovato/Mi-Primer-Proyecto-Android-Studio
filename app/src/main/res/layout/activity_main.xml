@@ -5,5 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFF"
-    tools:context=".MainActivity" />
+    tools:context=".MainActivity" >
+
+    <ImageView
+        android:id="@+id/imgCamara"
+        android:layout_width="194dp"
+        android:layout_height="132dp"
+        android:layout_marginTop="72dp"
+        android:onClick="grabarVideo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_camera" />
+</androidx.constraintlayout.widget.ConstraintLayout>
 

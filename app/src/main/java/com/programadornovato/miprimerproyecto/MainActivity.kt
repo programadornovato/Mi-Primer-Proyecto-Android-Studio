@@ -31,17 +31,5 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        if (ContextCompat.checkSelfPermission(this@MainActivity, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this@MainActivity, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this@MainActivity, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA), 1000)
-        }
-    }
-    fun grabarVideo(view:View){
-        val REQUEST_VIDEO_CAPTURE=1
-        Intent(MediaStore.ACTION_VIDEO_CAPTURE).also { video->
-            video.resolveActivity(packageManager)?.also {
-                startActivityForResult(video,REQUEST_VIDEO_CAPTURE)
-            }
-        }
     }
 }

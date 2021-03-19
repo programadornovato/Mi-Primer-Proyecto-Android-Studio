@@ -42,8 +42,6 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onTick(millisUntilFinished: Long) {
-                drawView!!.posX+=10f
-                drawView!!.posY+=10f
                 drawView!!.invalidate()
             }
 

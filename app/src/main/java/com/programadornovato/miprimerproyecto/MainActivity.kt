@@ -14,6 +14,7 @@ import android.media.MediaPlayer
 import android.media.MediaRecorder
 import android.media.SoundPool
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.os.Environment.getExternalStorageDirectory
 import android.provider.MediaStore
 import android.view.LayoutInflater
@@ -28,8 +29,24 @@ import java.io.IOException
 import java.lang.Exception
 
 class MainActivity : AppCompatActivity() {
+    var drawView:DrawView?=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        drawView= DrawView(this)
+        drawView?.setBackgroundColor(Color.WHITE)
+        setContentView(drawView)
+        object : CountDownTimer(1000000L,100L){
+            override fun onFinish() {
+                this.cancel()
+            }
+
+            override fun onTick(millisUntilFinished: Long) {
+                drawView!!.posX+=10f
+                drawView!!.posY+=10f
+                drawView!!.invalidate()
+            }
+
+        }.start()
     }
 }
